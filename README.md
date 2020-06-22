@@ -1,6 +1,6 @@
-Spinal Base Project
+spinal-interfaces
 ============
-This repository is a base SBT project added to help non Scala/SBT native people in their first steps.
+Contains interfaces such as jtag, apb, and other written in SpinalHDL
 
 Just one important note, you need a java JDK >= 8
 
@@ -16,7 +16,7 @@ sudo update-alternatives --config java
 sudo update-alternatives --config javac
 ```
 
-## Basics, without any IDE
+## Dependencies
 
 You need to install SBT
 
@@ -46,63 +46,14 @@ echo "DONE"
 
 ```
 
-Clone or download this repository.
-
-```sh
-git clone https://github.com/SpinalHDL/SpinalTemplateSbt.git
-```
-
 Open a terminal in the root of it and run "sbt run". At the first execution, the process could take some seconds
 
 ```sh
 cd SpinalTemplateSbt
 
 //If you want to generate the Verilog of your design
-sbt "runMain mylib.MyTopLevelVerilog"
+sbt "runMain jtag.SimpleJtagTapVerilog"
 
-//If you want to generate the VHDL of your design
-sbt "runMain mylib.MyTopLevelVhdl"
-
-//If you want to run the scala written testbench
-sbt "runMain mylib.MyTopLevelSim"
 ```
 
-The top level spinal code is defined into src\main\scala\mylib
-
-## Basics, with Intellij IDEA and its scala plugin
-
-You need to install :
-
-- Java JDK 8
-- SBT
-- Intellij IDEA (the free Community Edition is good enough)
-- Intellij IDEA Scala plugin (when you run Intellij IDEA the first time, he will ask you about it)
-
-And do the following :
-
-- Clone or download this repository.
-- In Intellij IDEA, "import project" with the root of this repository, Import project from external model SBT
-- In addition maybe you need to specify some path like JDK to Intellij
-- In the project (Intellij project GUI), go in src/main/scala/mylib/MyTopLevel.scala, right click on MyTopLevelVerilog, "Run MyTopLevelVerilog"
-
-Normally, this must generate an MyTopLevel.v output files.
-
-## Basics, with Eclipse and its scala plugin
-
-You need to install :
-
-- Java JDK
-- Scala
-- SBT
-- Eclipse (tested with Mars.2 - 4.5.2)
-- [scala plugin](http://scala-ide.org/) (tested with 4.4.1)
-
-And do the following :
-
-- Clone or download this repository.
-- Run ```sbt eclipse``` in the ```SpinalTemplateSbt``` directory.
-- Import the eclipse project from eclipse.
-- In the project (eclipse project GUI), right click on src/main/scala/mylib/MyTopLevel.scala, right click on MyTopLevelVerilog, and select run it
-
-Normally, this must generate output file ```MyTopLevel.v```.
 
