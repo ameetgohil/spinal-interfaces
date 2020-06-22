@@ -1,7 +1,8 @@
 *.class
 *.log
 *.bak
-
+*~
+*#
 # sbt specific
 .cache/
 .history/
